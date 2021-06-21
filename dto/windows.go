@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-//OsConfiguration
+//Windows
 type Windows struct {
 	RdpAllowedIps []string `json:"rdpAllowedIps"`
 }

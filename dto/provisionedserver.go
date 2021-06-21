@@ -22,7 +22,7 @@ type ProvisionedServer struct {
 	ReservationId         string          `json:"reservationId"`
 	PricingModel          string          `json:"pricingModel"`
 	NetworkType           string          `json:"networkType"`
-	Windows               OsConfiguration `json:"windows"`
+	OsConfiguration       OsConfiguration `json:"osConfiguration"`
 }
 
 //ToBytes performs conversion of struct to the io.Reader

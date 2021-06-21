@@ -1,10 +1,8 @@
 package dto
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -19,16 +17,6 @@ type SshKey struct {
 	Fingerprint   string `json:"fingerprint"`
 	CreatedOn     string `json:"createdOn"`
 	LastUpdatedOn string `jason:"lastUpdatedOn"`
-}
-
-//ToBytes performs conversion of struct to the io.Reader
-func (dto SshKey) ToBytes() (reader io.Reader) {
-	requestByte, err := json.Marshal(dto)
-	if err != nil {
-		fmt.Println("SshKey dto can not be converted to io.Reader:", err)
-		os.Exit(1)
-	}
-	return bytes.NewBuffer(requestByte)
 }
 
 //FromBytes performs conversion of http response to the representing struct

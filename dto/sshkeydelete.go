@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-//DeleteSshKeyResult represents sshKey dekte response type
+//DeleteSshKeyResult represents sshKey delete response type
 type DeleteSshKeyResult struct {
 	Result   string `json:"result"`
 	SshKeyID string `json:"sshKeyId"`

@@ -10,6 +10,7 @@ import (
 
 //ProvisionedServer represents server that should be provisioned (created) for the first time
 type ProvisionedServer struct {
+	ID                    string          `json:"id"`
 	Name                  string          `json:"hostname"`
 	Description           string          `json:"description"`
 	Os                    string          `json:"os"`

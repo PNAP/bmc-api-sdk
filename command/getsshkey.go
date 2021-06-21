@@ -28,7 +28,7 @@ func (command *GetSshKeyCommand) SetSshKeyID(id string) {
 	command.sshKeyID = id
 }
 
-//NewGetServerCommand constructs new commmand of this type
+//NewGetSshKeyCommand constructs new commmand of this type
 func NewGetSshKeyCommand(requester client.Requester, sshKeyID string) *GetSshKeyCommand {
 	return &GetSshKeyCommand{requester, sshKeyID}
 }

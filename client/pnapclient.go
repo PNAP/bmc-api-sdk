@@ -43,6 +43,7 @@ func NewPNAPClient(clientID string, clientSecret string) PNAPClient {
 	return pnapClient
 }
 
+// Load configuration
 func loadConfiguration() clientcredentials.Config {
 	// Find home directory
 	home, _ := homedir.Dir()
@@ -126,6 +127,17 @@ func (pnapClient PNAPClient) Post(resource string, body io.Reader) (*http.Respon
 	return pnapClient.client.Post(buildURI(resource), "application/json", body)
 }
 
+// Put performs a Put request and check for auth errors
+func (pnapClient PNAPClient) Put(resource string, body io.Reader) (*http.Response, error) {
+	req, err := http.NewRequest("PUT", buildURI(resource), body)
+	// replicating Get/Post error handling
+	if err != nil {
+		return nil, err
+	}
+	return pnapClient.client.Do(req)
+}
+
+// Creates URI
 func buildURI(resource string) string {
 	return config.Hostname + resource
 }

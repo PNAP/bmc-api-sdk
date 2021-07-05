@@ -10,7 +10,7 @@ import (
 // CreateSshKeyCommand represents command for sshkey creating. Use NewCreateSshKeyCommand to initilize command properly.
 type CreateSshKeyCommand struct {
 	requester client.Requester
-	sshKey    dto.SshKeyCreate
+	sshKey    dto.SshKey
 }
 
 // Execute create new ssh key
@@ -25,11 +25,11 @@ func (command *CreateSshKeyCommand) SetRequester(requester client.Requester) {
 }
 
 // SetSshKey - sets sshKey details to the command
-func (command *CreateSshKeyCommand) SetSshKey(sshKey dto.SshKeyCreate) {
+func (command *CreateSshKeyCommand) SetSshKey(sshKey dto.SshKey) {
 	command.sshKey = sshKey
 }
 
 //NewCreateSshKeyCommand - constructs new command of this type
-func NewCreateSshKeyCommand(requester client.Requester, sshKey dto.SshKeyCreate) *CreateSshKeyCommand {
+func NewCreateSshKeyCommand(requester client.Requester, sshKey dto.SshKey) *CreateSshKeyCommand {
 	return &CreateSshKeyCommand{requester, sshKey}
 }

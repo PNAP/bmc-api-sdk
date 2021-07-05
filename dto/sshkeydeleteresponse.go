@@ -8,19 +8,19 @@ import (
 	"os"
 )
 
-//DeleteSshKeyResult represents sshKey delete response type
-type DeleteSshKeyResult struct {
+//DeleteSshKeyResponse represents sshKey delete action response
+type DeleteSshKeyResponse struct {
 	Result   string `json:"result"`
 	SshKeyID string `json:"sshKeyId"`
 }
 
 //FromBytes performs conversion of http response to the representing struct
-func (dto *DeleteSshKeyResult) FromBytes(resp *http.Response) {
+func (dto *DeleteSshKeyResponse) FromBytes(resp *http.Response) {
 	body, err := ioutil.ReadAll(resp.Body)
 	if err == nil {
 		err = json.Unmarshal(body, dto)
 	} else {
-		fmt.Println("API response body can not be converted to DeleteSshKeyResult dto:", err)
+		fmt.Println("API response body can not be converted to DeleteSshKeyResponse dto:", err)
 		os.Exit(1)
 	}
 }

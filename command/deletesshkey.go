@@ -23,9 +23,9 @@ func (command *DeleteSshKeyCommand) SetRequester(requester client.Requester) {
 	command.requester = requester
 }
 
-// SetServerID sets server id to the command
-func (command *DeleteSshKeyCommand) SetSshKeyID(id string) {
-	command.sshKeyID = id
+// SetSshKeyID sets sshkey id to the command
+func (command *DeleteSshKeyCommand) SetSshKeyID(sshKeyID string) {
+	command.sshKeyID = sshKeyID
 }
 
 //NewDeleteSshKeyCommand constructs new commmand of this type

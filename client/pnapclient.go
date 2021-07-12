@@ -130,10 +130,11 @@ func (pnapClient PNAPClient) Post(resource string, body io.Reader) (*http.Respon
 // Put performs a Put request and check for auth errors
 func (pnapClient PNAPClient) Put(resource string, body io.Reader) (*http.Response, error) {
 	req, err := http.NewRequest("PUT", buildURI(resource), body)
-	// replicating Get/Post error handling
 	if err != nil {
 		return nil, err
 	}
+	// set the request header Content-Type for json
+	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	return pnapClient.client.Do(req)
 }
 

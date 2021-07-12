@@ -25,6 +25,7 @@ type SshKey struct {
 func (dto *SshKey) FromBytes(resp *http.Response) {
 	body, err := ioutil.ReadAll(resp.Body)
 	if err == nil {
+		//If body contains valid JSON that fits in SshKey, after the call err will be nil and the data from body will have been stored in the struct SshKey ()
 		err = json.Unmarshal(body, dto)
 	} else {
 		fmt.Println("API response body can not be converted to SshKey dto:", err)
